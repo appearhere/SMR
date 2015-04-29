@@ -1,0 +1,24 @@
+:scss
+  @mixin unstyled-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  ol {
+    &.unstyled {
+      @include unstyled-list;
+    }
+  }
+
+.row
+  .columns.medium-12
+    %ul.unstyled
+      - jobs.each do |job|
+        %li
+          .row
+            .columns.medium-10
+              %h3= job.title
+            .columns.medium-2
+              = link_to 'Add Details', '#', class: 'button expand'
