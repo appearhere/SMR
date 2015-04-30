@@ -1,16 +1,5 @@
-:scss
-  @mixin unstyled-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  ul,
-  ol {
-    &.unstyled {
-      @include unstyled-list;
-    }
-  }
+%header
+  %h2 Job List
 
 .row
   .columns.medium-12
@@ -18,7 +7,10 @@
       - jobs.each do |job|
         %li
           .row
-            .columns.medium-10
+            .columns.medium-8
               %h3= job.title
             .columns.medium-2
-              = link_to 'Add Candidate', new_job_candidate_path(job.shortcode), class: 'button expand'
+              = link_to 'View All', job_candidates_path(job), class: 'button secondary expand'
+
+            .columns.medium-2
+              = link_to 'Add Candidate', new_job_candidate_path(job), class: 'button expand'

@@ -6,14 +6,15 @@
 
     %title SMR
 
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'vendor/modernizr'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
 
   %body
     - if flash[:success]
-      .alert.success
+      .alert-box.success
         = flash[:success]
 
-    = yield
+    %div.main
+      .row
+        .columns.small-12
+          = yield

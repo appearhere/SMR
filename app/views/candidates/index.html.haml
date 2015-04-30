@@ -1,0 +1,25 @@
+%header
+  %h2= job.title
+
+.navbar
+  = link_to "Back to Jobs", jobs_path, class: 'button secondary small'
+
+.row
+  .columns.medium-12
+    - if candidates.blank?
+      %h3 No candidates added
+
+    - else
+      %ul.unstyled
+        - candidates.each do |candidate|
+          %li
+            .row
+              .columns.medium-10
+                %h3 #{ candidate.name } (#{ candidate.email })
+
+              .columns.medium-2
+                - if candidate.added_to_workable?
+                  %span.label.success IN SYNC
+
+                - elsif candidate.last_error_at?
+                  %span.label.error SYNC ERROR

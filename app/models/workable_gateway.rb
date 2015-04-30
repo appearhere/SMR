@@ -15,12 +15,12 @@ module WorkableGateway
     ActiveSupport::JSON.decode(json)['jobs']
   end
 
-  def self.add_candidate(job, candidate)
-    uri  = URI(generate_url("/jobs/#{ job.shortcode }/candidates"))
+  def self.add_candidate(job_shortcode, candidate_json)
+    uri  = URI(generate_url("/jobs/#{ job_shortcode }/candidates"))
     resp = nil
 
     Net::HTTP.start(uri.host) do |http|
-      resp = http.post(uri.path, candidate.to_json, { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{ TOKEN }" })
+      resp = http.post(uri.path, candidate_json, { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{ TOKEN }" })
     end
 
     resp

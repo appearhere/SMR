@@ -1,3 +1,9 @@
+%header
+  %h2 Adding #{ job.title } candidate
+
+.navbar
+  = link_to "Back to Jobs", jobs_path, class: 'button secondary small'
+
 .row
   .columns.medium-12
     = simple_form_for [job, candidate] do |f|
@@ -12,9 +18,4 @@
         .columns.medium-6
           = f.input :identity_id
 
-      .row
-        .columns.medium-6
-          = link_to 'Back', jobs_path()
-
-        .columns.medium-6
-          = f.submit 'Save', class: 'button'
+      = f.submit 'Save', class: 'button expand'

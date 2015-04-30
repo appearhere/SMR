@@ -1,7 +1,4 @@
-class Candidate
-  include ActiveModel::Model
-  attr_accessor :name, :email, :identity_type, :identity_id
-
+class Candidate < ActiveRecord::Base
   IDENTITY_TYPES = %i{ angellist dribbble github twitter }
   IDENTITY_URLS = {
     angellist: 'https://angel.co/{ID}',
@@ -11,22 +8,29 @@ class Candidate
   }
 
   validates :name,          presence: true
-  validates :email,         presence: true
+  validates :email,         presence: true, uniqueness: true
   validates :identity_type, presence: true, inclusion: { in: IDENTITY_TYPES }
   validates :identity_id,   presence: true
+
+  belongs_to :job
 
   def self.identity_types
     IDENTITY_TYPES
   end
 
   def identity_type
-    @identity_type ? @identity_type.to_sym : @identity_type
+    val = super()
+    val ? val.to_sym : val
   end
 
   def identity_url
     fail 'Invalid Candidate' unless valid?
 
     IDENTITY_URLS[identity_type].gsub(/{ID}/, identity_id)
+  end
+
+  def added_to_workable?
+    added_to_workable_at?
   end
 
   def as_json(*_)
