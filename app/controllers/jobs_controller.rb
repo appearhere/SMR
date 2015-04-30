@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    jobs = WorkableGateway.jobs
+    jobs = Job.all
     render :index, locals: { jobs: jobs }
   end
 end

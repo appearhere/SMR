@@ -12,10 +12,7 @@ module WorkableGateway
   def self.jobs
     url  = generate_url('/jobs', query: { phase: 'published' })
     json = get_cached(url)
-    data = ActiveSupport::JSON.decode(json)['jobs']
-    data
-      .map { |datum| Job.new(datum.slice('title', 'shortcode')) }
-      .sort_by(&:title)
+    ActiveSupport::JSON.decode(json)['jobs']
   end
 
   def self.add_candidate(job, candidate)

@@ -1,7 +1,6 @@
-class Job
-  include ActiveModel::Model
-
-  attr_accessor :title, :shortcode
+class Job < ActiveRecord::Base
+  validates :shortcode, presence: true, uniqueness: true
+  validates :title,     presence: true
 
   def to_param
     shortcode
