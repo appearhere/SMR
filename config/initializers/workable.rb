@@ -1,1 +1,6 @@
-Rails.configuration.workable_token = ENV.fetch('WORKABLE_TOKEN')
+Rails.configuration.workable_token = if Rails.env.test?
+                                       'FAKE-KEY'
+                                     else
+                                       ENV.fetch('WORKABLE_TOKEN')
+                                     end
+

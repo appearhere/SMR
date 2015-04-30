@@ -10,5 +10,10 @@
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+
   %body
+    - if flash[:success]
+      .alert.success
+        = flash[:success]
+
     = yield
