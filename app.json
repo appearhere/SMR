@@ -20,6 +20,12 @@
     "MAX_THREADS": {
       "description": "The number of threads to run.",
       "value": "1"
+    },
+    "USERNAME": {
+      "description": "A username for HTTP basic auth.",
+    }
+    "PASSWORD": {
+      "description": "A password for HTTP basic auth.",
     }
   },
   "scripts": {
