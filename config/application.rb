@@ -17,6 +17,6 @@ Bundler.require(*Rails.groups)
 
 module Smr
   class Application < Rails::Application
-    config.active_job.queue_adapter = :sucker_punch
+    config.active_job.queue_adapter = :sidekiq
   end
 end
