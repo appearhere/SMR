@@ -21,5 +21,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'rspec-rails'
   gem 'foreman'
+  gem 'shoulda-matchers'
 end
 
