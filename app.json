@@ -1,0 +1,29 @@
+{
+  "name": "SMR Data Collector",
+  "description": "App for collecting contact details for candidates and push them into Workable.",
+  "repository": "https://github.com/appearhere/SMR",
+  "logo": "http://logos.appearhere.co.uk/brackets/X40.png",
+  "keywords": [
+    "Appear Here",
+    "SMR",
+    "Workable",
+    "Rails"
+  ],
+  "env": {
+    "WORKABLE_TOKEN": {
+      "description": "Your Workable API token"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    },
+    "MAX_THREADS": {
+      "description": "The number of threads to run.",
+      "value": "1"
+    }
+  },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate workable:fetch_jobs"
+  }
+}
+
