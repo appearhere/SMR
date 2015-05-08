@@ -9,8 +9,7 @@ class Candidate < ActiveRecord::Base
 
   validates :name,          presence: true
   validates :email,         presence: true, uniqueness: true
-  validates :identity_type, presence: true, inclusion: { in: IDENTITY_TYPES }
-  validates :identity_id,   presence: true
+  validates :identity_type, inclusion: { in: IDENTITY_TYPES, allow_blank: true }
 
   belongs_to :job
 

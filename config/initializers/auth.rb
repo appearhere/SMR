@@ -1,2 +1,2 @@
-Rails.configuration.username = ENV.fetch('USERNAME')
-Rails.configuration.password = ENV.fetch('PASSWORD')
+Rails.configuration.username = ENV['USERNAME']
+Rails.configuration.password = ENV['PASSWORD']
