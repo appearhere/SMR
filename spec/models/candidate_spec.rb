@@ -60,6 +60,7 @@ describe Candidate do
     it "generates a Workable friendly format" do
       candidate = Candidate.new(name: 'Chris Lowder',
                                 email: 'clowder@gmail.com',
+                                headline: 'http://clowder.name',
                                 identity_type: 'twitter',
                                 identity_id: 'clowder')
 
@@ -67,6 +68,7 @@ describe Candidate do
         candidate: {
           name: 'Chris Lowder',
           email: 'clowder@gmail.com',
+          headline: 'http://clowder.name',
           social_profiles: [
             {
               type: 'twitter',
@@ -79,7 +81,7 @@ describe Candidate do
       })
     end
 
-    context "the user has no social profile" do
+    context "the user has none of the optional info" do
       it "generates a Workable friendly format" do
         candidate = Candidate.new(name: 'Chris Lowder',
                                   email: 'clowder@gmail.com')

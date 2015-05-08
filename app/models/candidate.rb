@@ -43,10 +43,14 @@ class Candidate < ActiveRecord::Base
     json = {
       candidate: {
         name: name,
-        email: email,
+        email: email
       },
       sourced: true
     }
+
+    if headline.present?
+      json[:candidate][:headline] = headline
+    end
 
     if identity?
       json[:candidate][:social_profiles] = [

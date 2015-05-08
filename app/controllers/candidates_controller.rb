@@ -28,7 +28,7 @@ class CandidatesController < ApplicationController
 
   private
   def post_params
-    params.require(:candidate).permit(:name, :email, :identity_type,
+    params.require(:candidate).permit(:name, :email, :headline, :identity_type,
                                       :identity_id)
   end
 end
