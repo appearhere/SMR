@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 gem 'pg'
 gem 'puma'
 gem 'sidekiq'
@@ -22,5 +22,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'foreman'
   gem 'shoulda-matchers'
+  gem 'dotenv-rails'
 end
-
