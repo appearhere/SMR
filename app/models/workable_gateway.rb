@@ -1,4 +1,5 @@
 require 'addressable/uri'
+require 'open-uri'
 
 module WorkableGateway
   BASE_URI = Addressable::URI
